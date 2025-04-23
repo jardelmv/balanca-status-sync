@@ -4,5 +4,10 @@ interface Window {
   global: typeof globalThis;
 }
 
-// Make sure global is defined for Node.js environments
+// Make sure global is defined for all environments
 declare var global: typeof globalThis;
+
+// Ensure these types are recognized in all environments
+interface Global {
+  global: typeof globalThis;
+}

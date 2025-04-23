@@ -1,14 +1,17 @@
 
-// Polyfill for global
+// Ensure global is available in all environments
 if (typeof window !== 'undefined') {
-  // Make global available to all scripts
+  // Browser environment - make window.global available
   window.global = window;
+} else if (typeof global === 'undefined') {
+  // Handle edge case where global isn't defined at all
+  (globalThis as any).global = globalThis;
 }
 
-// Polyfill for events
+// Import events polyfill - needs to happen before PouchDB
 import 'events';
 
-// Only import PouchDB after polyfills are set
+// Only import PouchDB after polyfills are applied
 import PouchDB from 'pouchdb';
 
 // Initialize local PouchDB
