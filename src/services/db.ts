@@ -1,4 +1,3 @@
-
 // Provide a polyfill for the global object that PouchDB expects
 if (typeof window !== 'undefined') {
   window.global = window;
@@ -11,6 +10,17 @@ const localDB = new PouchDB('jbt-balanca-local');
 
 // Remote CouchDB URL
 const remoteDB = new PouchDB('https://xxx:yyy@db.vpn.ind.br/jbt-balanca');
+
+// Get weights document
+export const getWeightsDoc = async () => {
+  try {
+    const doc = await localDB.get('pesos');
+    return doc;
+  } catch (err) {
+    console.error('Error fetching weights:', err);
+    return null;
+  }
+};
 
 // Setup sync
 export const setupSync = () => {
