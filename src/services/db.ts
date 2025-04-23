@@ -1,4 +1,9 @@
 
+// Provide a polyfill for the global object that PouchDB expects
+if (typeof window !== 'undefined') {
+  window.global = window;
+}
+
 import PouchDB from 'pouchdb';
 
 // Initialize local PouchDB
@@ -29,4 +34,3 @@ export const getStatusDoc = async () => {
     return null;
   }
 };
-
