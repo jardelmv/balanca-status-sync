@@ -3,3 +3,6 @@
 interface Window {
   global: Window;
 }
+
+// For Node.js environments
+declare var global: Window;

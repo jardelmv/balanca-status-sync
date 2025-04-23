@@ -1,5 +1,7 @@
-// Provide a polyfill for the global object that PouchDB expects
+
+// PouchDB expects a global object that isn't available in browsers
 if (typeof window !== 'undefined') {
+  // Make sure global is defined before PouchDB is imported
   window.global = window;
 }
 
