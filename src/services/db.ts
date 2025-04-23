@@ -1,13 +1,14 @@
 
-// Polyfill for global and events
-import 'events';
-
-// PouchDB expects a global object that isn't available in browsers
+// Polyfill for global
 if (typeof window !== 'undefined') {
-  // Make sure global is defined before PouchDB is imported
+  // Make global available to all scripts
   window.global = window;
 }
 
+// Polyfill for events
+import 'events';
+
+// Only import PouchDB after polyfills are set
 import PouchDB from 'pouchdb';
 
 // Initialize local PouchDB

@@ -1,8 +1,8 @@
 
 // This file adds the global property to the Window interface
 interface Window {
-  global: Window;
+  global: typeof globalThis;
 }
 
-// For Node.js environments
-declare var global: Window;
+// Make sure global is defined for Node.js environments
+declare var global: typeof globalThis;
