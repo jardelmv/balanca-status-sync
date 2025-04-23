@@ -14,7 +14,7 @@ import PouchDB from 'pouchdb';
 const localDB = new PouchDB('jbt-balanca-local');
 
 // Remote CouchDB URL
-const remoteDB = new PouchDB('https://xxx:yyy@db.vpn.ind.br/jbt-balanca');
+const remoteDB = new PouchDB('https://admin:wyrd@db.vpn.ind.br/jbt-balanca');
 
 // Get weights document
 export const getWeightsDoc = async () => {
